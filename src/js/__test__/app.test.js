@@ -22,20 +22,20 @@ test('checking the iteration for output to the character', () => {
   const myTeam = new Team();
   myTeam.addAll(char1, char2);
 
-  const iterator = myTeam[Symbol.iterator]();
+  const generator = myTeam[Symbol.iterator]();
 
   // Первый вызов next() должен вернуть первый элемент
-  const iterationResult1 = iterator.next();
+  const iterationResult1 = generator.next();
   expect(iterationResult1.value).toEqual(char1);
   expect(iterationResult1.done).toBeFalsy();
 
   // // Второй вызов next() должен вернуть второй элемент
-  const iterationResult2 = iterator.next();
+  const iterationResult2 = generator.next();
   expect(iterationResult2.value).toEqual(char2);
   // expect(iterationResult2.done).toBeFalsy();
 
   // // Третий вызов next() должен вернуть { value: undefined, done: true }
-  const iterationResult3 = iterator.next();
+  const iterationResult3 = generator.next();
   expect(iterationResult3.value).toBeUndefined();
   expect(iterationResult3.done).toBeTruthy();
 });
